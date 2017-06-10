@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.css" />
+		<title></title>
+	</head>
+
+	<body>
+		<!--导航-->
+		<div class="header">
+			<div class="hu">
+				<img src="img/hxlogo.png" />
+			</div>
+			<div class="tu">
+				<img src="img/options.png" />
+			</div>
+			<div class="she">
+				<img src="img/options.png" />
+			</div>
+		</div>
+
+		<!--内容-->
+		<article>
+			<ul class="ul tabs">
+				<a href="#" class="look active">
+					看点
+				</a>
+				<a href="#" class="look">
+					读点
+				</a>
+				<a href="#" class="look">
+					观点
+				</a>
+			</ul>
+			<div class="swiper-container caidan" id="tabs-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content-slide">
+							<section class="top news-list">
+								<h4>都在传腾讯入股京东,试做可能性分析</h4>
+								<div class="dou">
+									<div class="img1">
+										<img src="img/0.jpg" />
+									</div>
+									<div class="text">
+										<p>@游东西系:"京东+微信",抑或是"易迅+微信+京东",之余京东,之余腾讯电商,都是很没有想象力的，是打一次翻身仗的几乎</p>
+									</div>
+								</div>
+								<p style="text-align: right;margin-bottom: 10px;">moweiqi|2014-01-08 13:34|评论(0)</p>
+							</section>
+						</div>
+						<div class="content-slide">
+							<section class="top news-list">
+								<h4>都在传腾讯入股京东,试做可能性分析</h4>
+								<div class="dou">
+									<div class="img1">
+										<img src="img/0.jpg" />
+									</div>
+									<div class="text">
+										<p>@游东西系:"京东+微信",抑或是"易迅+微信+京东",之余京东,之余腾讯电商,都是很没有想象力的，是打一次翻身仗的几乎</p>
+									</div>
+								</div>
+								<p style="text-align: right;margin-bottom: 10px;">moweiqi|2014-01-08 13:34|评论(0)</p>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination xiaobai1"></div>
+			</div>
+
+		</article>
+
+		<script src="js/jquery.3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			window.onload = function() {
+				new Swiper(".caidan", {
+					loop: true,
+			})
+				
+				//tab切换
+				var tabsSwiper = new Swiper('#tabs-container', {
+					speed: 500,
+					onSlideChangeStart: function() {
+						$(".tabs .active").removeClass('active')
+						$(".tabs a").eq(tabsSwiper.activeIndex).addClass('active')
+					}
+				})
+				$(".tabs a").on('touchstart mousedown', function(e) {
+					e.preventDefault()
+					$(".tabs .active").removeClass('active')
+					$(this).addClass('active')
+					tabsSwiper.slideTo($(this).index())
+				})
+				$(".tabs a").click(function(e) {
+					e.preventDefault()
+				})
+				
+				
+				$.get("http://127.0.0.1:8888/huoqu",function(){
+					
+				})
+			}
+		</script>
+	</body>
+
+</html>
